@@ -3,22 +3,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: monolith
+  name: oder
   labels:
-    app: monolith
+    app: oder
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: monolith
+      app: oder
   template:
     metadata:
       labels:
-        app: monolith
+        app: oder
     spec:
       containers:
-        - name: monolith
-          image: username/monolith:latest
+        - name: oder
+          image: username/oder:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -85,15 +85,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: monolith
+  name: oder
   labels:
-    app: monolith
+    app: oder
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: monolith
+    app: oder
 
 
 ---
